@@ -5,12 +5,30 @@
     "Workspace": {
       "$className": "Workspace",
       "$ignoreUnknownInstances": true,
-      "$path": "src/Workspace"
+      "$path": "src/Workspace",
+      "$properties": {
+        "ClientAnimatorThrottling": "Enabled",
+        "FallenPartsDestroyHeight": 0,
+        "MeshPartHeadsAndAccessories": "Enabled",
+        "PhysicsSteppingMethod": "Adaptive",
+        "Retargeting": "Enabled",
+        "SignalBehavior": "Immediate",
+        "RejectCharacterDeletions": "Enabled",
+        "StreamingEnabled": true
+      }
     },
     "ReplicatedStorage": {
       "$className": "ReplicatedStorage",
       "$ignoreUnknownInstances": true,
       "$path": "src/ReplicatedStorage"
+    },
+    "StarterGui": {
+      "$className": "StarterGui",
+      "$ignoreUnknownInstances": true,
+      "$properties": {
+        "RtlTextSupport": "Enabled",
+        "VirtualCursorEnabled": "Enabled"
+      }
     },
     "ServerScriptService": {
       "$className": "ServerScriptService",
