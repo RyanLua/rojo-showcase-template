@@ -17,18 +17,19 @@
       }
     },
 
+    "ReplicatedStorage": {
+      "$path": "src/shared"
+    },
+
     "ServerScriptService": {
-      "$className": "ServerScriptService",
-      "$path": "src/ServerScriptService"
+      "$path": "src/server"
     },
 
     "StarterPlayer": {
-      "$className": "StarterPlayer",
-
       "StarterPlayerScripts": {
-        "$className": "StarterPlayerScripts",
-        "$path": "src/StarterPlayerScripts"
+        "$path": "src/client"
       }
     }
   }
 }
+
