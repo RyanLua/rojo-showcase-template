@@ -16,7 +16,7 @@ local function awardBadge(player, badgeId)
 
 	if hasBadge then
 		-- Handle player's badge ownership as needed
-		print("User already has badge", badgeId)
+		-- print("User already has badge", badgeId)
 		return
 	end
 
