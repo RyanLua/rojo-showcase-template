@@ -15,7 +15,7 @@ local Commands = {
 		{
 			PrimaryAlias = "gravity",
 			SecondaryAlias = "grav",
-			PermissionLevel = 0,
+			PermissionLevel = 250,
 			Function = function(player: Player, args: { string })
 				local gravity = args[1]
 				if gravity and tonumber(gravity) then
@@ -26,7 +26,7 @@ local Commands = {
 		{
 			PrimaryAlias = "walkspeed",
 			SecondaryAlias = "speed",
-			PermissionLevel = 0,
+			PermissionLevel = 250,
 			Function = function(player: Player, args: { string })
 				local character = player.Character
 				if character then
@@ -43,7 +43,7 @@ local Commands = {
 		{
 			PrimaryAlias = "explode",
 			SecondaryAlias = nil,
-			PermissionLevel = 0,
+			PermissionLevel = 250,
 			Function = function(player: Player, args: { string })
 				local character = player.Character
 				if character then
