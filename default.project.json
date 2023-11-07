@@ -2,13 +2,14 @@
   "name": "rojo-showcase",
   "tree": {
     "$className": "DataModel",
+
     "Workspace": {
       "$className": "Workspace",
-      "$ignoreUnknownInstances": true,
       "$path": "src/Workspace",
+      "$ignoreUnknownInstances": true,
       "$properties": {
+        "AllowThirdPartySales": false,
         "ClientAnimatorThrottling": "Enabled",
-        "FallenPartsDestroyHeight": 0,
         "MeshPartHeadsAndAccessories": "Enabled",
         "PhysicsSteppingMethod": "Adaptive",
         "Retargeting": "Enabled",
@@ -17,31 +18,23 @@
         "StreamingEnabled": true
       }
     },
+
     "ReplicatedStorage": {
       "$className": "ReplicatedStorage",
-      "$ignoreUnknownInstances": true,
       "$path": "src/ReplicatedStorage"
     },
-    "StarterGui": {
-      "$className": "StarterGui",
-      "$ignoreUnknownInstances": true,
-      "$properties": {
-        "RtlTextSupport": "Enabled",
-        "VirtualCursorEnabled": "Enabled"
-      }
-    },
+
     "ServerScriptService": {
       "$className": "ServerScriptService",
-      "$ignoreUnknownInstances": true,
       "$path": "src/ServerScriptService"
     },
+
     "StarterPlayer": {
       "$className": "StarterPlayer",
-      "$ignoreUnknownInstances": true,
+
       "StarterPlayerScripts": {
         "$className": "StarterPlayerScripts",
-        "$ignoreUnknownInstances": true,
-        "$path": "src/StarterPlayer/StarterPlayerScripts"
+        "$path": "src/StarterPlayerScripts"
       }
     }
   }
