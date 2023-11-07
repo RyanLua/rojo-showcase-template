@@ -5,8 +5,6 @@
 
     "Workspace": {
       "$className": "Workspace",
-      "$path": "src/Workspace",
-      "$ignoreUnknownInstances": true,
       "$properties": {
         "AllowThirdPartySales": false,
         "ClientAnimatorThrottling": "Enabled",
@@ -17,11 +15,6 @@
         "RejectCharacterDeletions": "Enabled",
         "StreamingEnabled": true
       }
-    },
-
-    "ReplicatedStorage": {
-      "$className": "ReplicatedStorage",
-      "$path": "src/ReplicatedStorage"
     },
 
     "ServerScriptService": {
