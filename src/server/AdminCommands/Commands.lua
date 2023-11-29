@@ -16,7 +16,7 @@ local Commands = {
 			PrimaryAlias = "gravity",
 			SecondaryAlias = "grav",
 			PermissionLevel = 250,
-			Function = function(player: Player, args: { string })
+			Function = function(_player: Player, args: { string })
 				local gravity = args[1]
 				if gravity and tonumber(gravity) then
 					Workspace.Gravity = tonumber(gravity) :: number
@@ -44,7 +44,7 @@ local Commands = {
 			PrimaryAlias = "explode",
 			SecondaryAlias = nil,
 			PermissionLevel = 250,
-			Function = function(player: Player, args: { string })
+			Function = function(player: Player, _args: { string })
 				local character = player.Character
 				if character then
 					local primaryPart = character.PrimaryPart
