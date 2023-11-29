@@ -11,7 +11,7 @@
         "MeshPartHeadsAndAccessories": "Enabled",
         "PhysicsSteppingMethod": "Adaptive",
         "Retargeting": "Enabled",
-        "SignalBehavior": "Immediate",
+        "SignalBehavior": "Deferred",
         "RejectCharacterDeletions": "Enabled",
         "StreamingEnabled": true
       }
