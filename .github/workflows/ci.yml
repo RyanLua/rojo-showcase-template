@@ -6,12 +6,12 @@ on:
   pull_request:
     paths:
       - ".github/workflows/ci.ya?ml"
-      - "**.lua"
+      - "**.luau"
 
   push:
     paths:
       - ".github/workflows/ci.ya?ml"
-      - "**.lua"
+      - "**.luau"
 
 permissions:
   contents: read
