@@ -3,22 +3,11 @@
   "tree": {
     "$className": "DataModel",
 
-    "Workspace": {
-      "$className": "Workspace",
-      "$properties": {
-        "AllowThirdPartySales": false,
-        "ClientAnimatorThrottling": "Enabled",
-        "MeshPartHeadsAndAccessories": "Enabled",
-        "PhysicsSteppingMethod": "Adaptive",
-        "Retargeting": "Enabled",
-        "SignalBehavior": "Deferred",
-        "RejectCharacterDeletions": "Enabled",
-        "StreamingEnabled": true
-      }
-    },
-
     "ReplicatedStorage": {
-      "$path": "src/shared"
+      "$path": "src/shared",
+      "Packages": {
+        "$path": "Packages"
+      }
     },
 
     "ServerScriptService": {
@@ -32,4 +21,3 @@
     }
   }
 }
-
