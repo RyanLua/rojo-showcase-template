@@ -21,6 +21,7 @@ icon:setImageScale(0.7)
 -- Change the ScreenshotHud and CoreGuiEnabled when icon is toggled
 icon.toggled:Connect(function(isSelected: boolean): ()
 	StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.All, not isSelected)
+	GuiService.TouchControlsEnabled = not isSelected
 	screenshotHud.Visible = isSelected
 end)
 
