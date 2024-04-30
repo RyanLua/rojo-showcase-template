@@ -5,7 +5,7 @@
 
     "ReplicatedStorage": {
       "$path": "src/shared",
-      "TopbarPlus": {
+      "Icon": {
         "$path": "submodules/TopbarPlus/src"
       }
     },
