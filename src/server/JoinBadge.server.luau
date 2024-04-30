@@ -1,6 +1,6 @@
 --!strict
 
---[[[
+--[[
 	A script that awards a badge to a player when they join the game.
 	To use this script, set the BadgeId attribute to the ID of the badge you want to award.
 	This script will disable itself if no badge ID is set and won't error.
