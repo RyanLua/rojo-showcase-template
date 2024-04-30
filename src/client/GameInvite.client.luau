@@ -34,12 +34,14 @@ if canInvite then
 	-- Prompt the game invite when the icon is selected
 	icon.selected:Connect(function(): ()
 		SocialService:PromptGameInvite(player)
+		icon:lock()
 	end)
 
 	-- Deselect the icon when the game invite prompt is closed
 	SocialService.GameInvitePromptClosed:Connect(function(): ()
-        icon:deselect()
-    end)
+		icon:deselect()
+		icon:unlock()
+	end)
 else
 	-- Disable the script if the player cannot send a game invite
 	script.Enabled = false
