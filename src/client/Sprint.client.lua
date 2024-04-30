@@ -17,7 +17,7 @@ local humanoid = character:WaitForChild("Humanoid") :: Humanoid
 local SPRINT_ACTION: string = "SprintAction"
 -- Keep track of the original walkspeed and a multiplier to use for sprinting
 local WALK_SPEED: number = humanoid.WalkSpeed
-local SPRINT_SPEED_MULTIPLIER: number = 2
+local SPRINT_SPEED_MULTIPLIER: number = script:GetAttribute("WalkSpeedMultiplier") or 2
 
 -- Define buttons to use for sprinting on both keyboard and gamepad
 local SPRINT_BUTTON_KEYBOARD: Enum.KeyCode = Enum.KeyCode.LeftShift
@@ -51,7 +51,6 @@ ContextActionService:BindAction(SPRINT_ACTION, handleAction, true, SPRINT_BUTTON
 -- Set the position of the mobile button
 ContextActionService:SetPosition(SPRINT_ACTION, UDim2.new(1, -70, 0, 10))
 -- Set the title of the mobile button
-ContextActionService:SetTitle(SPRINT_ACTION, "Sprint")
+ContextActionService:SetTitle(SPRINT_ACTION, script:GetAttribute("Title") or "Sprint")
 -- Set the description of the mobile button
 ContextActionService:SetDescription(SPRINT_ACTION, "Start sprinting.")
-
