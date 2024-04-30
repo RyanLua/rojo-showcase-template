@@ -4,6 +4,9 @@
 	Demonstrates how to increase a player's speed when specific inputs are pressed.
 	This sample implements left shift to run on keyboard, X to run on gamepad, and a touch button for mobile.
 	The input buttons can be modified to any input desired.
+
+	https://create.roblox.com/docs/reference/engine/classes/ContextActionService
+	https://create.roblox.com/store/asset/13595087289/Sprint-With-Button
 --]]
 
 local Players = game:GetService("Players")
