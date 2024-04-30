@@ -4,7 +4,10 @@
     "$className": "DataModel",
 
     "ReplicatedStorage": {
-      "$path": "src/shared"
+      "$path": "src/shared",
+      "TopbarPlus": {
+        "$path": "submodules/TopbarPlus/src"
+      }
     },
 
     "ServerScriptService": {
