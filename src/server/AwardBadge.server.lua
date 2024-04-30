@@ -1,16 +1,18 @@
+--!strict
+
 local BadgeService = game:GetService("BadgeService")
 local Players = game:GetService("Players")
 
-local BADGE_ID = script:GetAttribute("BadgeId") or 0
+local BADGE_ID: number = script:GetAttribute("BadgeId") or 0
 
-local function awardBadge(player, badgeId)
+local function awardBadge(player: Player, badgeId: number): ()
 	-- Fetch badge information
-	local infoSuccess, badgeInfo = pcall(function()
+	local infoSuccess: boolean, badgeInfo: any = pcall(function(): any
 		return BadgeService:GetBadgeInfoAsync(badgeId)
 	end)
 
 	-- Check if the player has the badge
-	local userSuccess, hasBadge = pcall(function()
+	local userSuccess: boolean, hasBadge: boolean = pcall(function(): boolean
 		return BadgeService:UserHasBadgeAsync(player.UserId, badgeId)
 	end)
 
@@ -24,7 +26,7 @@ local function awardBadge(player, badgeId)
 		-- Confirm that badge can be awarded
 		if badgeInfo.IsEnabled then
 			-- Award badge
-			local awardSuccess, result = pcall(function()
+			local awardSuccess: boolean, result: boolean = pcall(function(): boolean
 				return BadgeService:AwardBadge(player.UserId, badgeId)
 			end)
 
@@ -41,7 +43,7 @@ local function awardBadge(player, badgeId)
 	end
 end
 
-local function onPlayerAdded(player)
+local function onPlayerAdded(player: Player): ()
 	awardBadge(player, BADGE_ID)
 end
 
