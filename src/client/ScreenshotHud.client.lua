@@ -2,10 +2,10 @@
 
 --[[
 	Demonstrates how to use the ScreenshotHud to capture a screenshot of the game.
-    The ScreenshotHud is a 2D user interface that allows users to capture and save screenshots to their local device.
-    An icon will appear on the topbar to open the ScreenshotHud when clicked.
+	The ScreenshotHud is a 2D user interface that allows users to capture and save screenshots to their local device.
+	An icon will appear on the topbar to open the ScreenshotHud when clicked.
 
-    https://create.roblox.com/docs/en-us/reference/engine/classes/ScreenshotHud
+	https://create.roblox.com/docs/en-us/reference/engine/classes/ScreenshotHud
 ]]
 
 local GuiService = game:GetService("GuiService")
