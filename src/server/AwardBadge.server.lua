@@ -5,6 +5,11 @@ local Players = game:GetService("Players")
 
 local BADGE_ID: number = script:GetAttribute("BadgeId") or 0
 
+-- If no badge ID is set then don't do anything
+if BADGE_ID == 0 then
+	return
+end
+
 local function awardBadge(player: Player, badgeId: number): ()
 	-- Fetch badge information
 	local infoSuccess: boolean, badgeInfo: any = pcall(function(): any
