@@ -1,8 +1,0 @@
-[package]
-name = "ryanl/rojo-showcase-template"
-version = "0.1.0"
-registry = "https://github.com/UpliftGames/wally-index"
-realm = "shared"
-
-[dependencies]
-topbarplus = "1foreverhd/topbarplus@3.0.2"
