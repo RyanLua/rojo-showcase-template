@@ -18,7 +18,7 @@ local screenshotHud = GuiService:WaitForChild("ScreenshotHud") :: ScreenshotHud
 screenshotHud.ExperienceNameOverlayEnabled = true
 screenshotHud.HideCoreGuiForCaptures = true
 screenshotHud.HidePlayerGuiForCaptures = true
-screenshotHud.OverlayFont = Enum.Font.BuilderMedium
+screenshotHud.OverlayFont = Enum.Font.BuilderSansMedium
 
 -- Create the topbar icon
 local icon = Icon.new()
