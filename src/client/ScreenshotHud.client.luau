@@ -14,16 +14,26 @@ local StarterGui = game:GetService("StarterGui")
 
 local Icon = require(ReplicatedStorage.Icon)
 
+local iconImage: string = script:GetAttribute("IconImage") or "rbxasset://textures/ui/ScreenshotHud/Camera@3x.png"
+local iconCaption: string = script:GetAttribute("IconCaption") or "Capture"
+local closeWhenScreenshotTaken: boolean = script:GetAttribute("CloseWhenScreenshotTaken") or true
+local nameOverlay: boolean = script:GetAttribute("NameOverlay") or true
+local hideCoreGui: boolean = script:GetAttribute("HideCoreGui") or true
+local hidePlayerGui: boolean = script:GetAttribute("HidePlayerGui") or true
+local overlayFont: Enum.Font = script:GetAttribute("OverlayFont") or Enum.Font.BuilderSansMedium
+
+-- Get the ScreenshotHud
 local screenshotHud = GuiService:WaitForChild("ScreenshotHud") :: ScreenshotHud
-screenshotHud.ExperienceNameOverlayEnabled = true
-screenshotHud.HideCoreGuiForCaptures = true
-screenshotHud.HidePlayerGuiForCaptures = true
-screenshotHud.OverlayFont = Enum.Font.BuilderSansMedium
+screenshotHud.CloseWhenScreenshotTaken = closeWhenScreenshotTaken
+screenshotHud.ExperienceNameOverlayEnabled = nameOverlay
+screenshotHud.HideCoreGuiForCaptures = hideCoreGui
+screenshotHud.HidePlayerGuiForCaptures = hidePlayerGui
+screenshotHud.OverlayFont = overlayFont
 
 -- Create the topbar icon
 local icon = Icon.new()
-icon:setImage("rbxasset://textures/ui/ScreenshotHud/Camera@3x.png")
-icon:setCaption("Capture")
+icon:setImage(iconImage)
+icon:setCaption(iconCaption)
 icon:setImageScale(0.7)
 
 -- Change the ScreenshotHud and CoreGuiEnabled when icon is toggled
