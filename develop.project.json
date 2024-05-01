@@ -1,0 +1,28 @@
+{
+  "name": "rojo-showcase",
+  "tree": {
+    "$className": "DataModel",
+
+    "Workspace": {
+      "Rojo Showcase Template": {
+        "$className": "Folder",
+        "$path": "tests",
+
+        "ReplicatedStorage": {
+          "$className": "Folder",
+          "$path": "src/shared"
+        },
+
+        "ServerScriptService": {
+          "$className": "Folder",
+          "$path": "src/server"
+        },
+
+        "StarterPlayerScripts": {
+          "$className": "Folder",
+          "$path": "src/client"
+        }
+      }
+    }
+  }
+}
