@@ -45,9 +45,9 @@ Ready to be localized and translated for your users using [Automatic Translation
 
 Each script is modular and can be easily disabled or customized to fit your needs. Delete or disable any scripts you don't need or want. Easily customize scripts using [Instance Attributes](https://create.roblox.com/docs/studio/properties#instance-attributes).
 
-* Strict type checking and well-documented
+* Strict type-checking and well-documented
 
-Code that's easy for the eyes to read with strict type-checking to ensure that your code is bug-free. Comments on each piece of code to help you understand what each part does.
+Code that's easy for the eyes to read with [strict type-checking](https://create.roblox.com/docs/luau/type-checking) to ensure that your code is bug-free. Comments on each piece of code to help you understand what each part does.
 
 ## Installation
 
@@ -80,4 +80,4 @@ Feel free to contribute to this project by creating a pull request. Please ensur
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [Apache License 2.0](LICENSE).
