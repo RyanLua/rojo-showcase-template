@@ -7,5 +7,7 @@
 	https://create.roblox.com/docs/reference/engine/classes/UserInputService#MouseIcon
 ]]
 
+local mouseIcon: string = script:GetAttribute("Icon") or "rbxasset://textures/Cursors/Gamepad/Pointer.png"
+
 local UserInputService = game:GetService("UserInputService")
-UserInputService.MouseIcon = script:GetAttribute("Icon") or "rbxasset://textures/Cursors/Gamepad/Pointer.png"
+UserInputService.MouseIcon = mouseIcon
