@@ -11,6 +11,13 @@
 local TextChatService = game:GetService("TextChatService")
 local Players = game:GetService("Players")
 
+-- Disable the script if the game is not using TextChatService
+if TextChatService.ChatVersion ~= Enum.ChatVersion.TextChatService then
+	script.Enabled = false
+
+	return
+end
+
 -- Listen for incoming messages and add a [Premium] tag to premium members
 TextChatService.OnIncomingMessage = function(message: TextChatMessage): TextChatMessageProperties
 	local properties: TextChatMessageProperties = Instance.new("TextChatMessageProperties")
