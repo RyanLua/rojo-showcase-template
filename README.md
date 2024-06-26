@@ -2,7 +2,7 @@
     <img width="100" alt="Roblox Showcase Rojo Template" src="assets/logo.png" />
     <h1>Roblox Showcase Rojo Template</h1>
 
-[![CI](https://github.com/RyanLua/rojo-showcase-template/actions/workflows/ci.yml/badge.svg)](https://github.com/RyanLua/rojo-showcase-template/actions/workflows/ci.yml)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/RyanLua/rojo-showcase-template?quickstart=1)
 
 </div>
 
@@ -55,14 +55,26 @@ Code that's easy for the eyes to read with [strict type-checking](https://create
 
 * [Rojo](https://rojo.space/)
 * [Roblox Studio](https://www.roblox.com/create)
-* [Visual Studio Code](https://code.visualstudio.com/) or any other code editor
+* [Visual Studio Code](https://code.visualstudio.com/)
 
 Installation is easy and just like any other Rojo project.
 
+#### Using Visual Studio Code
+
 1. Clone the repository
-2. Open the project in your preferred editor
-3. Run `rojo serve` in the terminal
+2. Open the project in Visual Studio Code with Rojo installed (extension or CLI)
+3. Run `rojo serve` in the terminal or use the Rojo extension to serve
 4. Open Roblox Studio and connect to the Rojo server
+
+#### Using GitHub Codespaces
+
+1. Click on the <kbd>Open in GitHub Codespaces</kbd> button at the top of the README
+2. Wait for the Codespace to be created
+3. Run `rojo serve` in the terminal or use the Rojo extension to serve
+4. Change the port visibility of `Rojo (34872)` to `Public`
+5. Open Roblox Studio and connect to the Rojo server
+    * Remove the `https://` at the beginning and the `/` of the forwarded address. It should look something like this: `probable-memory-w44vgv9v4vpfjwj-34872.app.github.dev`
+    * Set the port as `80`
 
 Now accept those changes and your showcase is ready to go. Make sure to change the `BadgeId` in the `JoinBadge` script to your badge ID.
 
