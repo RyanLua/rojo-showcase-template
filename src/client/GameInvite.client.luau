@@ -11,7 +11,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local SocialService = game:GetService("SocialService")
 local Players = game:GetService("Players")
 
-local Icon = require(ReplicatedStorage.Icon)
+local Icon = require(ReplicatedStorage.Packages.topbarplus)
 local player = Players.LocalPlayer
 
 local invitePromptMessage: string = script:GetAttribute("InvitePromptMessage") or "Invite friends to join you"

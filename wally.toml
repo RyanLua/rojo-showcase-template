@@ -1,0 +1,11 @@
+[package]
+name = "ryanlua/rojo-showcase-template"
+version = "0.1.0"
+license = "Apache-2.0"
+authors = ["Ryan Luu <ryan.luu@ryanluu.dev>"]
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+private = true
+
+[dependencies]
+topbarplus = "legitatx/topbarplus@3.0.5"
