@@ -12,7 +12,7 @@ local GuiService = game:GetService("GuiService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local StarterGui = game:GetService("StarterGui")
 
-local Icon = require(ReplicatedStorage.Icon)
+local Icon = require(ReplicatedStorage.Packages.topbarplus)
 
 local iconImage: string = script:GetAttribute("IconImage") or "rbxasset://textures/ui/ScreenshotHud/Camera@3x.png"
 local iconCaption: string = script:GetAttribute("IconCaption") or "Capture"
