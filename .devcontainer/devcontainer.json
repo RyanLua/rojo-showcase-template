@@ -30,5 +30,7 @@
 				"johnnymorganz.luau-lsp"
 			]
 		}
-	}
+	},
+
+	"remoteUser": "root"
 }
