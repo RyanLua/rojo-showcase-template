@@ -19,7 +19,7 @@
 		}
 	},
 
-	"postCreateCommand": "aftman install --no-trust-check",
+	"postCreateCommand": "aftman install --no-trust-check && wally install",
 
 	"customizations": {
 		"vscode": {
