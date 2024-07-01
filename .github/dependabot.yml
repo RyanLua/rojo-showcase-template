@@ -9,7 +9,7 @@ updates:
     directory: ".github/workflows/"
     schedule:
       interval: "weekly"
-  - package-ecosystem: "gitsubmodule"
-    directory: "submodules/"
+  - package-ecosystem: "devcontainers"
+    directory: ".devcontainer/devcontainer.json"
     schedule:
-      interval: "weekly"
+      interval: weekly
