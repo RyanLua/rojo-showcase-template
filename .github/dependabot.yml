@@ -6,10 +6,10 @@
 version: 2
 updates:
   - package-ecosystem: "github-actions"
-    directory: ".github/workflows/"
+    directory: "/.github/workflows"
     schedule:
       interval: "weekly"
   - package-ecosystem: "devcontainers"
-    directory: ".devcontainer/devcontainer.json"
+    directory: "/.devcontainer"
     schedule:
       interval: weekly
