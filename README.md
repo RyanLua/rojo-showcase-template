@@ -28,7 +28,7 @@ Used in my collection of open-source showcases under my group, [The Winner Games
 | **Join Badge** | A script that [awards users a badge](https://create.roblox.com/docs/production/publishing/badges#awarding-badges) when they join your experience which displays within the Badges category of their inventory. |
 | **Avatar Context Menu** | Enables the [`Avatar Context Menu`](https://create.roblox.com/docs/players/avatar-context-menu) context menu that allows users to send a friend request, begin a private chat, view the user's profile, or wave when a user clicks on another user's character. |
 | **Minimal Mouse Icon** | Changes the default [mouse icon](https://create.roblox.com/docs/reference/engine/classes/UserInputService#MouseIcon) to a more minimal cursor used on console. |
-| **Sprint Script** | Allows users to sprint by holding the left shift on keyboard, X on gamepad, or a touch button for mobile. |
+| **Sprint Script** | Allows users to sprint by holding the left side <kbd>Shift</kbd> key, gamepad X button, or on-screen touch button. |
 | **Premium Chat Tag** | Adds a premium [chat tag](https://create.roblox.com/docs/chat/customizing-in-experience-text-chat#adding-chat-tags) to users with [Premium](https://www.roblox.com/premium/membership). |
 
 ### Features
