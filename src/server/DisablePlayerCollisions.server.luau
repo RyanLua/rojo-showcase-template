@@ -1,5 +1,12 @@
 --!strict
 
+--[[
+	Disable collisions between Roblox player characters.
+	Examples include characters jumping on top of each other to reach specific areas.
+
+	https://create.roblox.com/docs/workspace/collisions#disabling-character-collisions
+]]
+
 local PhysicsService = game:GetService("PhysicsService")
 local Players = game:GetService("Players")
 
