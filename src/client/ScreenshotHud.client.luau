@@ -12,6 +12,7 @@ local GuiService = game:GetService("GuiService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local StarterGui = game:GetService("StarterGui")
 
+local TranslationHelper = require(ReplicatedStorage.TranslationHelper)
 local Icon = require(ReplicatedStorage.Packages.topbarplus)
 
 local iconImage: string = script:GetAttribute("IconImage") or "rbxasset://textures/ui/ScreenshotHud/Camera@3x.png"
@@ -27,9 +28,10 @@ screenshotHud.HideCoreGuiForCaptures = hideCoreGui
 screenshotHud.HidePlayerGuiForCaptures = hidePlayerGui
 
 -- Create the topbar icon
+local translatedIconCaption: string = TranslationHelper.translate(iconCaption)
 local icon = Icon.new()
 icon:setImage(iconImage)
-icon:setCaption(iconCaption)
+icon:setCaption(translatedIconCaption)
 icon:setImageScale(0.7)
 
 -- Change the ScreenshotHud and CoreGuiEnabled when icon is toggled
