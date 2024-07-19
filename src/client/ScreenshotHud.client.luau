@@ -9,11 +9,14 @@
 ]]
 
 local GuiService = game:GetService("GuiService")
+local PolicyService = game:GetService("PolicyService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local StarterGui = game:GetService("StarterGui")
+local Players = game:GetService("Players")
 
 local TranslationHelper = require(ReplicatedStorage.TranslationHelper)
 local Icon = require(ReplicatedStorage.Packages.topbarplus)
+local player = Players.LocalPlayer
 
 local iconImage: string = script:GetAttribute("IconImage") or "rbxasset://textures/ui/ScreenshotHud/Camera@3x.png"
 local iconCaption: string = script:GetAttribute("IconCaption") or "Capture"
@@ -26,6 +29,19 @@ local screenshotHud = GuiService:WaitForChild("ScreenshotHud") :: ScreenshotHud
 screenshotHud.CloseWhenScreenshotTaken = closeWhenScreenshotTaken
 screenshotHud.HideCoreGuiForCaptures = hideCoreGui
 screenshotHud.HidePlayerGuiForCaptures = hidePlayerGui
+
+-- Check if the player is subject to China policies
+local success, result = pcall(function()
+	return PolicyService:GetPolicyInfoForPlayerAsync(player)
+end)
+
+if not success then
+	warn("PolicyService error: " .. result)
+elseif result.IsSubjectToChinaPolicies then
+	script.Enabled = false
+
+	return
+end
 
 -- Create the topbar icon
 local translatedIconCaption: string = TranslationHelper.translate(iconCaption)
