@@ -11,6 +11,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local SocialService = game:GetService("SocialService")
 local Players = game:GetService("Players")
 
+local TranslationHelper = require(ReplicatedStorage.TranslationHelper)
 local Icon = require(ReplicatedStorage.Packages.topbarplus)
 local player = Players.LocalPlayer
 
@@ -29,13 +30,16 @@ end
 -- Check if the player can send a game invite
 local canInvite: boolean = canSendGameInvite(player)
 if canInvite then
+	local translatedInvitePromptMessage: string = TranslationHelper.translate(invitePromptMessage)
+	local translatedInviteIconCaption: string = TranslationHelper.translate(iconCaption)
+
 	local inviteOptions: ExperienceInviteOptions = Instance.new("ExperienceInviteOptions")
-	inviteOptions.PromptMessage = invitePromptMessage
+	inviteOptions.PromptMessage = translatedInvitePromptMessage
 
 	-- Create the topbar icon
 	local icon = Icon.new()
 	icon:setImage(iconImage)
-	icon:setCaption(iconCaption)
+	icon:setCaption(translatedInviteIconCaption)
 	icon:setImageScale(0.7)
 
 	-- Prompt the game invite when the icon is selected
