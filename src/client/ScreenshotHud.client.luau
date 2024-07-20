@@ -44,11 +44,19 @@ elseif result.IsSubjectToChinaPolicies then
 end
 
 -- Create the topbar icon
-local translatedIconCaption: string = TranslationHelper.translate(iconCaption)
 local icon = Icon.new()
 icon:setImage(iconImage)
-icon:setCaption(translatedIconCaption)
+icon:setCaption(TranslationHelper.translate(iconCaption, script))
 icon:setImageScale(0.7)
+
+-- Handle locale changes
+local onLocaleIdChangedSignal: RBXScriptSignal | false = TranslationHelper.onLocaleIdChanged()
+
+if onLocaleIdChangedSignal ~= false then
+	onLocaleIdChangedSignal:Connect(function(): ()
+		icon:setCaption(TranslationHelper.translate(iconCaption, script))
+	end)
+end
 
 -- Change the ScreenshotHud and CoreGuiEnabled when icon is toggled
 icon.toggled:Connect(function(isSelected: boolean): ()
