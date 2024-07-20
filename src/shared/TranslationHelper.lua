@@ -14,21 +14,21 @@ local Players = game:GetService("Players")
 
 -- Local variables
 local player = Players.LocalPlayer
-local sourceLanguageCode = "en"
+local sourceLanguageCode: string = "en"
 
 -- Get translators
-local playerTranslator, fallbackTranslator
-local foundPlayerTranslator = pcall(function()
+local playerTranslator: Translator, fallbackTranslator: Translator
+local foundPlayerTranslator: boolean = pcall(function(): ()
 	playerTranslator = LocalizationService:GetTranslatorForPlayerAsync(player)
 end)
-local foundFallbackTranslator = pcall(function()
+local foundFallbackTranslator: boolean = pcall(function(): ()
 	fallbackTranslator = LocalizationService:GetTranslatorForLocaleAsync(sourceLanguageCode)
 end)
 
 -- Create a method TranslationHelper.setLanguage to load a new translation for the TranslationHelper
-function TranslationHelper.setLanguage(newLanguageCode)
+function TranslationHelper.setLanguage(newLanguageCode: string): boolean
 	if sourceLanguageCode ~= newLanguageCode then
-		local success, newPlayerTranslator = pcall(function()
+		local success: boolean, newPlayerTranslator: Translator = pcall(function(): Translator
 			return LocalizationService:GetTranslatorForLocaleAsync(newLanguageCode)
 		end)
 
@@ -43,7 +43,7 @@ end
 
 -- Create a Translate function that uses a fallback translator if the first fails to load or return successfully. You can also set the referenced object to default to the generic game object
 
-function TranslationHelper.translate(text, object)
+function TranslationHelper.translate(text: string, object: Instance): string | false
 	if not object then
 		object = game
 	end
@@ -58,18 +58,18 @@ end
 
 -- Create a FormatByKey() function that uses a fallback translator if the first fails to load or return successfully
 
-function TranslationHelper.translateByKey(key, arguments): string | boolean
-	local translation = ""
-	local foundTranslation = false
+function TranslationHelper.translateByKey(key: string, arguments: any): string | boolean
+	local translation: string = ""
+	local foundTranslation: boolean = false
 
 	-- First tries to translate for the player's language (if a translator was found)
 	if foundPlayerTranslator then
-		foundTranslation = pcall(function()
+		foundTranslation = pcall(function(): ()
 			translation = playerTranslator:FormatByKey(key, arguments)
 		end)
 	end
 	if foundFallbackTranslator and not foundTranslation then
-		foundTranslation = pcall(function()
+		foundTranslation = pcall(function(): ()
 			translation = fallbackTranslator:FormatByKey(key, arguments)
 		end)
 	end
@@ -78,6 +78,18 @@ function TranslationHelper.translateByKey(key, arguments): string | boolean
 	else
 		return false
 	end
+end
+
+-- Create a OnLocaleIdChanged function that updates the player's translator when the locale changes
+
+function TranslationHelper.onLocaleIdChanged(): RBXScriptSignal | false
+	if foundPlayerTranslator then
+		return playerTranslator:GetPropertyChangedSignal("LocaleId")
+	end
+	if foundFallbackTranslator then
+		return fallbackTranslator:GetPropertyChangedSignal("LocaleId")
+	end
+	return false
 end
 
 return TranslationHelper
