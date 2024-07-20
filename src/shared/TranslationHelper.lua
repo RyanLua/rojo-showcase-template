@@ -43,22 +43,21 @@ end
 
 -- Create a Translate function that uses a fallback translator if the first fails to load or return successfully. You can also set the referenced object to default to the generic game object
 
-function TranslationHelper.translate(text: string, object: Instance): string | false
-	if not object then
-		object = game
-	end
+function TranslationHelper.translate(text: string, object: Instance?): string
+	local context: Instance = object or game
+
 	if foundPlayerTranslator then
-		return playerTranslator:Translate(object, text)
+		return playerTranslator:Translate(context, text)
 	end
 	if foundFallbackTranslator then
-		return fallbackTranslator:Translate(object, text)
+		return fallbackTranslator:Translate(context, text)
 	end
-	return false
+	return text
 end
 
 -- Create a FormatByKey() function that uses a fallback translator if the first fails to load or return successfully
 
-function TranslationHelper.translateByKey(key: string, arguments: any): string | false
+function TranslationHelper.translateByKey(key: string, arguments: any): string
 	local translation: string = ""
 	local foundTranslation: boolean = false
 
@@ -76,7 +75,7 @@ function TranslationHelper.translateByKey(key: string, arguments: any): string |
 	if foundTranslation then
 		return translation
 	else
-		return false
+		return key
 	end
 end
 
