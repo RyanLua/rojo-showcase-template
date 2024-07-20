@@ -58,7 +58,7 @@ end
 
 -- Create a FormatByKey() function that uses a fallback translator if the first fails to load or return successfully
 
-function TranslationHelper.translateByKey(key: string, arguments: any): string | boolean
+function TranslationHelper.translateByKey(key: string, arguments: any): string | false
 	local translation: string = ""
 	local foundTranslation: boolean = false
 
