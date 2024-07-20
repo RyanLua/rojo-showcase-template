@@ -9,10 +9,14 @@
 ]]
 
 local GuiService = game:GetService("GuiService")
+local PolicyService = game:GetService("PolicyService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local StarterGui = game:GetService("StarterGui")
+local Players = game:GetService("Players")
 
+local TranslationHelper = require(ReplicatedStorage.TranslationHelper)
 local Icon = require(ReplicatedStorage.Packages.topbarplus)
+local player = Players.LocalPlayer
 
 local iconImage: string = script:GetAttribute("IconImage") or "rbxasset://textures/ui/ScreenshotHud/Camera@3x.png"
 local iconCaption: string = script:GetAttribute("IconCaption") or "Capture"
@@ -26,17 +30,38 @@ screenshotHud.CloseWhenScreenshotTaken = closeWhenScreenshotTaken
 screenshotHud.HideCoreGuiForCaptures = hideCoreGui
 screenshotHud.HidePlayerGuiForCaptures = hidePlayerGui
 
+-- Check if the player is subject to China policies
+local success, result = pcall(function()
+	return PolicyService:GetPolicyInfoForPlayerAsync(player)
+end)
+
+if not success then
+	warn("PolicyService error: " .. result)
+elseif result.IsSubjectToChinaPolicies then
+	script.Enabled = false
+
+	return
+end
+
 -- Create the topbar icon
 local icon = Icon.new()
 icon:setImage(iconImage)
-icon:setCaption(iconCaption)
+icon:setCaption(TranslationHelper.translate(iconCaption, script))
 icon:setImageScale(0.7)
+
+-- Handle locale changes
+local onLocaleIdChangedSignal: RBXScriptSignal | false = TranslationHelper.onLocaleIdChanged()
+
+if onLocaleIdChangedSignal ~= false then
+	onLocaleIdChangedSignal:Connect(function(): ()
+		icon:setCaption(TranslationHelper.translate(iconCaption, script))
+	end)
+end
 
 -- Change the ScreenshotHud and CoreGuiEnabled when icon is toggled
 icon.toggled:Connect(function(isSelected: boolean): ()
 	StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.All, not isSelected)
 	Icon.setTopbarEnabled(not isSelected)
-	GuiService.TouchControlsEnabled = not isSelected
 	screenshotHud.Visible = isSelected
 end)
 
