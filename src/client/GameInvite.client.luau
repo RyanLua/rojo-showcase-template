@@ -30,17 +30,24 @@ end
 -- Check if the player can send a game invite
 local canInvite: boolean = canSendGameInvite(player)
 if canInvite then
-	local translatedInvitePromptMessage: string = TranslationHelper.translate(invitePromptMessage)
-	local translatedInviteIconCaption: string = TranslationHelper.translate(iconCaption)
-
 	local inviteOptions: ExperienceInviteOptions = Instance.new("ExperienceInviteOptions")
-	inviteOptions.PromptMessage = translatedInvitePromptMessage
+	inviteOptions.PromptMessage = TranslationHelper.translate(invitePromptMessage, script)
 
 	-- Create the topbar icon
 	local icon = Icon.new()
 	icon:setImage(iconImage)
-	icon:setCaption(translatedInviteIconCaption)
+	icon:setCaption(TranslationHelper.translate(iconCaption, script))
 	icon:setImageScale(0.7)
+
+	-- Handle locale changes
+	local onLocaleIdChangedSignal: RBXScriptSignal | false = TranslationHelper.onLocaleIdChanged()
+
+	if onLocaleIdChangedSignal ~= false then
+		onLocaleIdChangedSignal:Connect(function(): ()
+			inviteOptions.PromptMessage = TranslationHelper.translate(invitePromptMessage, script)
+			icon:setCaption(TranslationHelper.translate(iconCaption, script))
+		end)
+	end
 
 	-- Prompt the game invite when the icon is selected
 	icon.selected:Connect(function(): ()
