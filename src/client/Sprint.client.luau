@@ -17,10 +17,13 @@ local TranslationHelper = require(ReplicatedStorage.TranslationHelper)
 
 -- Get the player's humanoid
 local player = Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
+local character: Model = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid") :: Humanoid
 
 local SPRINT_ACTION: string = "SprintAction"
+local SPRINT_ACTION_TITLE: string = script:GetAttribute("Title") or "Sprint"
+local SPRINT_ACTION_DESCRIPTION: string = "Start sprinting."
+
 -- Keep track of the original walkspeed and a multiplier to use for sprinting
 local WALK_SPEED: number = humanoid.WalkSpeed
 local SPRINT_SPEED_MULTIPLIER: number = script:GetAttribute("WalkSpeedMultiplier") or 2
@@ -57,6 +60,15 @@ ContextActionService:BindAction(SPRINT_ACTION, handleAction, true, SPRINT_BUTTON
 -- Set the position of the mobile button
 ContextActionService:SetPosition(SPRINT_ACTION, UDim2.new(1, -70, 0, 10))
 -- Set the title of the mobile button
-ContextActionService:SetTitle(SPRINT_ACTION, TranslationHelper.translate(script:GetAttribute("Title") or "Sprint"))
+ContextActionService:SetTitle(SPRINT_ACTION, TranslationHelper.translate(SPRINT_ACTION_TITLE, script))
 -- Set the description of the mobile button
-ContextActionService:SetDescription(SPRINT_ACTION, "Start sprinting.")
+ContextActionService:SetDescription(SPRINT_ACTION, SPRINT_ACTION_DESCRIPTION)
+
+-- If the player changes their locale, update the mobile button's title
+local onLocaleIdChangedSignal: RBXScriptSignal | false = TranslationHelper.onLocaleIdChanged()
+
+if onLocaleIdChangedSignal ~= false then
+	onLocaleIdChangedSignal:Connect(function(): ()
+		ContextActionService:SetTitle(SPRINT_ACTION, TranslationHelper.translate(SPRINT_ACTION_TITLE, script))
+	end)
+end
