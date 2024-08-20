@@ -1,29 +1,22 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/ryanlua/templates/tree/main/src/roblox
 {
 	"name": "Roblox",
-	"image": "mcr.microsoft.com/devcontainers/base:jammy",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/base:ubuntu",
 
 	"features": {
-		"ghcr.io/ryanlua/features/rojo:latest": {
+		"ghcr.io/ryanlua/features/rojo:0.2.0": {
 			"version": "latest",
-			"installAftman": "true"
+			"toolchainManager": "rokit"
 		}
 	},
 
-	"forwardPorts": [
-		34872
-	],
-	"portsAttributes": {
-		"34872": {
-			"label": "Rojo",
-			"onAutoForward": "notify"
-		}
-	},
-
-	"postCreateCommand": "aftman install --no-trust-check && wally install",
-
+	// Configure tool-specific properties.
 	"customizations": {
+		// Configure properties specific to VS Code.
 		"vscode": {
-			"settings": {},
+			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
 				"kampfkarren.selene-vscode",
 				"johnnymorganz.stylua",
@@ -32,5 +25,17 @@
 		}
 	},
 
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [34872],
+	"portsAttributes": {
+			"34872": {
+				"label": "Rojo"
+			}
+	},
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "rokit install --no-trust-check && wally install",
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	"remoteUser": "root"
 }
