@@ -17,11 +17,13 @@ local lastCell = nil
 local pendingUpdate: boolean = true
 local updating: boolean = false
 
+local cullTag: string = "DistanceCullable"
+
 function AddDetail(instance)
 	task.spawn(function(): ()
 		local record = {}
 
-		record.cullDistance = 300
+		record.cullDistance = script:GetAttribute("CullingDistance") or 250
 		record.instance = instance
 		record.primaryPart = instance
 		record.visible = true
@@ -65,10 +67,10 @@ function AddDetail(instance)
 end
 
 function Setup(): ()
-	CollectionService:GetInstanceAddedSignal("Detail_Small"):Connect(function(instance)
+	CollectionService:GetInstanceAddedSignal(cullTag):Connect(function(instance): ()
 		AddDetail(instance)
 	end)
-	for _, instance in CollectionService:GetTagged("Detail_Small") do
+	for _, instance in CollectionService:GetTagged(cullTag) do
 		AddDetail(instance)
 	end
 end
