@@ -14,11 +14,11 @@ local CollectionService = game:GetService("CollectionService")
 
 local details = {}
 local lastCell = nil
-local pendingUpdate = true
-local updating = false
+local pendingUpdate: boolean = true
+local updating: boolean = false
 
 function AddDetail(instance)
-	task.spawn(function()
+	task.spawn(function(): ()
 		local record = {}
 
 		record.cullDistance = 300
@@ -64,17 +64,17 @@ function AddDetail(instance)
 	end)
 end
 
-function Setup()
+function Setup(): ()
 	CollectionService:GetInstanceAddedSignal("Detail_Small"):Connect(function(instance)
 		AddDetail(instance)
 	end)
-	for key, instance in CollectionService:GetTagged("Detail_Small") do
+	for _, instance in CollectionService:GetTagged("Detail_Small") do
 		AddDetail(instance)
 	end
 end
 Setup()
 
-RunService.Heartbeat:Connect(function(dt)
+RunService.Heartbeat:Connect(function(): ()
 	--See if we have a player and a distance check
 	local player = game.Players.LocalPlayer
 
@@ -84,10 +84,10 @@ RunService.Heartbeat:Connect(function(dt)
 		return
 	end
 
-	local pos = character.PrimaryPart.Position
+	local position = character.PrimaryPart.Position
 
 	local cellSize = 4
-	local cell = pos // cellSize
+	local cell = position // cellSize
 	if cell ~= lastCell then
 		lastCell = cell
 
@@ -99,16 +99,16 @@ RunService.Heartbeat:Connect(function(dt)
 		pendingUpdate = false
 		task.spawn(function()
 			local counter = 0
-			for instance, record in details do
-				local vec = record.primaryPart.Position - pos
-				local mag = vec.Magnitude
+			for _, record in details do
+				local vector = record.primaryPart.Position - position
+				local magnitude = vector.Magnitude
 
-				if mag < record.cullDistance and record.visible == false then
+				if magnitude < record.cullDistance and record.visible == false then
 					record.instance.Parent = record.parent
 					record.visible = true
 					continue
 				end
-				if mag >= record.cullDistance and record.visible == true then
+				if magnitude >= record.cullDistance and record.visible == true then
 					record.instance.Parent = nil
 					record.visible = false
 				end
