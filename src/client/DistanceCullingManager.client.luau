@@ -11,6 +11,7 @@
 
 local RunService = game:GetService("RunService")
 local CollectionService = game:GetService("CollectionService")
+local Players = game:GetService("Players")
 
 local details = {}
 local lastCell = nil
@@ -78,9 +79,8 @@ Setup()
 
 RunService.Heartbeat:Connect(function(): ()
 	--See if we have a player and a distance check
-	local player = game.Players.LocalPlayer
-
-	local character = player.Character
+	local player = Players.LocalPlayer
+	local character: Model? = player.Character
 
 	if character == nil or character.PrimaryPart == nil then
 		return
