@@ -9,4 +9,5 @@
 ]]
 
 local StarterGui = game:GetService("StarterGui")
+task.wait(3) -- Wait for CoreScripts to register SetCore: AvatarContextMenuEnabled
 StarterGui:SetCore("AvatarContextMenuEnabled", true)
