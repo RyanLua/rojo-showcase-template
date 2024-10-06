@@ -1,6 +1,4 @@
-<div align=center>
-    <img width="100" alt="Roblox Showcase Rojo Template" src="assets/logo.png" />
-    <h1>Roblox Showcase Rojo Template</h1>
+# Roblox Showcase Rojo Template
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/RyanLua/rojo-showcase-template?quickstart=1)
 
