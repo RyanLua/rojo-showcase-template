@@ -14,11 +14,6 @@ local UserInputService = game:GetService("UserInputService")
 ProximityPromptService.PromptShown:Connect(function(prompt: ProximityPrompt): ()
 	local promptActionName: string = prompt.Name
 
-	-- Don't create a button if the user is not on mobile
-	if UserInputService:GetLastInputType() ~= Enum.UserInputType.Touch then
-		return
-	end
-
 	-- Create the action
 	local function handleAction(actionName: string, inputState: Enum.UserInputState): ()
 		if actionName == promptActionName then
