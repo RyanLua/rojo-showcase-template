@@ -32,7 +32,7 @@ ProximityPromptService.PromptShown:Connect(function(prompt: ProximityPrompt): ()
 
 	-- Bind the action
 	ContextActionService:BindAction(promptActionName, handleAction, true)
-	ContextActionService:SetPosition(promptActionName, UDim2.new(1, -70, 0, 10))
+	ContextActionService:SetPosition(promptActionName, UDim2.new(1, -140, 0, 10))
 	ContextActionService:SetImage(promptActionName, "rbxasset://textures/ui/Controls/TouchTapIcon.png")
 end)
 
