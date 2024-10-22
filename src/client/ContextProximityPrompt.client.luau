@@ -8,11 +8,11 @@
 
 local ContextActionService = game:GetService("ContextActionService")
 local ProximityPromptService = game:GetService("ProximityPromptService")
-local UserInputService = game:GetService("UserInputService")
 
 -- Create the action when the prompt is shown (mobile button)
 ProximityPromptService.PromptShown:Connect(function(prompt: ProximityPrompt): ()
 	local promptActionName: string = prompt.Name
+	local promptActionTitle: string = prompt.ActionText
 
 	-- Create the action
 	local function handleAction(actionName: string, inputState: Enum.UserInputState): ()
@@ -28,7 +28,7 @@ ProximityPromptService.PromptShown:Connect(function(prompt: ProximityPrompt): ()
 	-- Bind the action
 	ContextActionService:BindAction(promptActionName, handleAction, true)
 	ContextActionService:SetPosition(promptActionName, UDim2.new(1, -140, 0, 10))
-	ContextActionService:SetImage(promptActionName, "rbxasset://textures/ui/Controls/TouchTapIcon.png")
+	ContextActionService:SetTitle(promptActionName, promptActionTitle)
 end)
 
 -- Remove the action when the prompt is hidden
