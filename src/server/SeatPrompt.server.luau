@@ -12,7 +12,7 @@ local CollectionService = game:GetService("CollectionService")
 local tag: string = script:GetAttribute("SeatTagName") :: string or "Seat"
 local objectText: string = script:GetAttribute("ObjectText") :: string or "Seat"
 local actionText: string = script:GetAttribute("ActionText") :: string or "Sit"
-local holdDuration: number = script:GetAttribute("HoldDuration") :: number or 0.25
+local holdDuration: number = script:GetAttribute("HoldDuration") :: number or 0
 local requiresLineOfSight: boolean = script:GetAttribute("RequiresLineOfSight") :: boolean or false
 local disableSeatTouch: boolean = script:GetAttribute("DisableSeatTouch") :: boolean or true
 
