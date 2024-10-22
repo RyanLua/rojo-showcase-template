@@ -28,6 +28,8 @@ Used in my collection of open-source showcases under my group, [The Winner Games
 | **Minimal Mouse Icon** | Changes the default [mouse icon](https://create.roblox.com/docs/reference/engine/classes/UserInputService#MouseIcon) to a more minimal cursor used on console. |
 | **Sprint Script** | Allows users to sprint by holding the left side <kbd>Shift</kbd> key, gamepad X button, or on-screen touch button. |
 | **Premium Chat Tag** | Adds a premium [chat tag](https://create.roblox.com/docs/chat/customizing-in-experience-text-chat#adding-chat-tags) to users with [Premium](https://www.roblox.com/premium/membership). |
+| **Contextual Proximity Prompt** | Creates a [contextual mobile button](https://create.roblox.com/docs/input/mobile#context-dependent-inputs) for triggering proximity prompts. [Example](https://youtu.be/WAwuNaPIkTs) |
+| **Seat Prompt** | Proximity prompts to sit in a seat when a user is near a seat with the [tag](https://create.roblox.com/docs/reference/engine/classes/CollectionService) `Seat`. |
 
 ### Features
 
