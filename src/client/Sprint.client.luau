@@ -63,12 +63,3 @@ ContextActionService:SetPosition(SPRINT_ACTION, UDim2.new(1, -70, 0, 10))
 ContextActionService:SetTitle(SPRINT_ACTION, TranslationHelper.translate(SPRINT_ACTION_TITLE, script))
 -- Set the description of the mobile button
 ContextActionService:SetDescription(SPRINT_ACTION, SPRINT_ACTION_DESCRIPTION)
-
--- If the player changes their locale, update the mobile button's title
-local onLocaleIdChangedSignal: RBXScriptSignal | false = TranslationHelper.onLocaleIdChanged()
-
-if onLocaleIdChangedSignal ~= false then
-	onLocaleIdChangedSignal:Connect(function(): ()
-		ContextActionService:SetTitle(SPRINT_ACTION, TranslationHelper.translate(SPRINT_ACTION_TITLE, script))
-	end)
-end
