@@ -21,12 +21,12 @@ local character: Model = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid") :: Humanoid
 
 local SPRINT_ACTION: string = "SprintAction"
-local SPRINT_ACTION_TITLE: string = script:GetAttribute("Title") or "Sprint"
+local SPRINT_ACTION_TITLE: string = script:GetAttribute("Title") :: string or "Sprint"
 local SPRINT_ACTION_DESCRIPTION: string = "Start sprinting."
 
 -- Keep track of the original walkspeed and a multiplier to use for sprinting
 local WALK_SPEED: number = humanoid.WalkSpeed
-local SPRINT_SPEED_MULTIPLIER: number = script:GetAttribute("WalkSpeedMultiplier") or 2
+local SPRINT_SPEED_MULTIPLIER: number = script:GetAttribute("WalkSpeedMultiplier") :: number or 2
 
 -- Define buttons to use for sprinting on both keyboard and gamepad
 local SPRINT_BUTTON_KEYBOARD: Enum.KeyCode = Enum.KeyCode.LeftShift
