@@ -36,7 +36,7 @@ if canInvite then
 	-- Create the topbar icon
 	local icon = Icon.new()
 	icon:setImage(iconImage)
-	icon:setCaption(TranslationHelper.translate(iconCaption, script))
+	icon:setCaption(iconCaption)
 	icon:setImageScale(0.7)
 
 	-- Handle locale changes
@@ -45,7 +45,6 @@ if canInvite then
 	if onLocaleIdChangedSignal ~= false then
 		onLocaleIdChangedSignal:Connect(function(): ()
 			inviteOptions.PromptMessage = TranslationHelper.translate(invitePromptMessage, script)
-			icon:setCaption(TranslationHelper.translate(iconCaption, script))
 		end)
 	end
 

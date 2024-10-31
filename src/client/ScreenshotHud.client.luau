@@ -14,7 +14,6 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local StarterGui = game:GetService("StarterGui")
 local Players = game:GetService("Players")
 
-local TranslationHelper = require(ReplicatedStorage.TranslationHelper)
 local Icon = require(ReplicatedStorage.Packages.topbarplus)
 local player = Players.LocalPlayer
 
@@ -46,17 +45,8 @@ end
 -- Create the topbar icon
 local icon = Icon.new()
 icon:setImage(iconImage)
-icon:setCaption(TranslationHelper.translate(iconCaption, script))
+icon:setCaption(iconCaption)
 icon:setImageScale(0.7)
-
--- Handle locale changes
-local onLocaleIdChangedSignal: RBXScriptSignal | false = TranslationHelper.onLocaleIdChanged()
-
-if onLocaleIdChangedSignal ~= false then
-	onLocaleIdChangedSignal:Connect(function(): ()
-		icon:setCaption(TranslationHelper.translate(iconCaption, script))
-	end)
-end
 
 -- Change the ScreenshotHud and CoreGuiEnabled when icon is toggled
 icon.toggled:Connect(function(isSelected: boolean): ()
