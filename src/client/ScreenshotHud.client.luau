@@ -18,7 +18,8 @@ local TranslationHelper = require(ReplicatedStorage.TranslationHelper)
 local Icon = require(ReplicatedStorage.Packages.topbarplus)
 local player = Players.LocalPlayer
 
-local iconImage: string = script:GetAttribute("IconImage") :: string or "rbxasset://textures/ui/ScreenshotHud/Camera@3x.png"
+local iconImage: string = script:GetAttribute("IconImage") :: string
+	or "rbxasset://textures/ui/ScreenshotHud/Camera@3x.png"
 local iconCaption: string = script:GetAttribute("IconCaption") :: string or "Capture"
 local closeWhenScreenshotTaken: boolean = script:GetAttribute("CloseWhenScreenshotTaken") :: boolean or true
 local hideCoreGui: boolean = script:GetAttribute("HideCoreGui") :: boolean or true

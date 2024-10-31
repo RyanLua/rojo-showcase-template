@@ -50,7 +50,6 @@ if canCall then
 	end)
 end
 
-
 SocialService.CallInviteStateChanged:Connect(function(_, inviteState)
 	local isCalling = inviteState == Enum.InviteState.Placed
 
