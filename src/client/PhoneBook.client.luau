@@ -1,5 +1,13 @@
 --!strict
 
+--[[
+	Prompts the given Player with the phone book to call someone.
+	Creates a topbar icon to open the phone book when clicked.
+
+	https://create.roblox.com/docs/reference/engine/classes/SocialService
+	https://create.roblox.com/docs/resources/roblox-connect
+]]
+
 local Players = game:GetService("Players")
 local SocialService = game:GetService("SocialService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
