@@ -10,10 +10,7 @@
 --]]
 
 local Players = game:GetService("Players")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local ContextActionService = game:GetService("ContextActionService")
-
-local TranslationHelper = require(ReplicatedStorage.TranslationHelper)
 
 -- Get the player's humanoid
 local player = Players.LocalPlayer
@@ -60,6 +57,6 @@ ContextActionService:BindAction(SPRINT_ACTION, handleAction, true, SPRINT_BUTTON
 -- Set the position of the mobile button
 ContextActionService:SetPosition(SPRINT_ACTION, UDim2.new(1, -70, 0, 10))
 -- Set the title of the mobile button
-ContextActionService:SetTitle(SPRINT_ACTION, TranslationHelper.translate(SPRINT_ACTION_TITLE, script))
+ContextActionService:SetTitle(SPRINT_ACTION, SPRINT_ACTION_TITLE)
 -- Set the description of the mobile button
 ContextActionService:SetDescription(SPRINT_ACTION, SPRINT_ACTION_DESCRIPTION)
