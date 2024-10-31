@@ -15,9 +15,10 @@ local TranslationHelper = require(ReplicatedStorage.TranslationHelper)
 local Icon = require(ReplicatedStorage.Packages.topbarplus)
 local player = Players.LocalPlayer
 
-local invitePromptMessage: string = script:GetAttribute("InvitePromptMessage") or "Invite friends to join you"
-local iconImage: string = script:GetAttribute("IconImage") or "rbxasset://textures/ui/PlayerList/FriendIcon@3x.png"
-local iconCaption: string = script:GetAttribute("IconCaption") or "Invite Friends"
+local invitePromptMessage: string = script:GetAttribute("InvitePromptMessage") :: string or "Invite friends to join you"
+local iconImage: string = script:GetAttribute("IconImage") :: string
+	or "rbxasset://textures/ui/PlayerList/FriendIcon@3x.png"
+local iconCaption: string = script:GetAttribute("IconCaption") :: string or "Invite Friends"
 
 -- Function to check whether the player can send an invite
 local function canSendGameInvite(sendingPlayer: Player): boolean

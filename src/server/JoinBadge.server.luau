@@ -11,7 +11,7 @@
 local BadgeService = game:GetService("BadgeService")
 local Players = game:GetService("Players")
 
-local BADGE_ID: number = script:GetAttribute("BadgeId") or 0
+local BADGE_ID: number = script:GetAttribute("BadgeId") :: number or 0
 
 -- If no badge ID is set then don't do anything
 if BADGE_ID == 0 then

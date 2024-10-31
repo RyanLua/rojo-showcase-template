@@ -17,11 +17,12 @@ local Players = game:GetService("Players")
 local Icon = require(ReplicatedStorage.Packages.topbarplus)
 local player = Players.LocalPlayer
 
-local iconImage: string = script:GetAttribute("IconImage") or "rbxasset://textures/ui/ScreenshotHud/Camera@3x.png"
-local iconCaption: string = script:GetAttribute("IconCaption") or "Capture"
-local closeWhenScreenshotTaken: boolean = script:GetAttribute("CloseWhenScreenshotTaken") or true
-local hideCoreGui: boolean = script:GetAttribute("HideCoreGui") or true
-local hidePlayerGui: boolean = script:GetAttribute("HidePlayerGui") or true
+local iconImage: string = script:GetAttribute("IconImage") :: string
+	or "rbxasset://textures/ui/ScreenshotHud/Camera@3x.png"
+local iconCaption: string = script:GetAttribute("IconCaption") :: string or "Capture"
+local closeWhenScreenshotTaken: boolean = script:GetAttribute("CloseWhenScreenshotTaken") :: boolean or true
+local hideCoreGui: boolean = script:GetAttribute("HideCoreGui") :: boolean or true
+local hidePlayerGui: boolean = script:GetAttribute("HidePlayerGui") :: boolean or true
 
 -- Get the ScreenshotHud
 local screenshotHud = GuiService:WaitForChild("ScreenshotHud") :: ScreenshotHud
@@ -35,7 +36,7 @@ local success, result = pcall(function()
 end)
 
 if not success then
-	warn("PolicyService error: " .. result)
+	warn("PolicyService error: " .. tostring(result))
 elseif result.IsSubjectToChinaPolicies then
 	script.Enabled = false
 
