@@ -62,17 +62,17 @@ Installation is easy and just like any other Rojo project.
 #### Using Visual Studio Code
 
 1. Clone the repository
-2. Open the project in Visual Studio Code with Rojo installed (extension or CLI)
-3. Run `rojo serve` in the terminal or use the Rojo extension to serve
-4. Open Roblox Studio and connect to the Rojo server
+1. Open the project in Visual Studio Code with Rojo installed (extension or CLI)
+1. Run `rojo serve` in the terminal or use the Rojo extension to serve
+1. Open Roblox Studio and connect to the Rojo server
 
 #### Using GitHub Codespaces
 
 1. Click on the <kbd>Open in GitHub Codespaces</kbd> button at the top of the README
-2. Wait for the Codespace to be created
-3. Run `rojo serve` in the terminal or use the Rojo extension to serve
-4. Change the port visibility of `Rojo (34872)` to `Public`
-5. Open Roblox Studio and connect to the Rojo server
+1. Wait for the Codespace to be created
+1. Run `rojo serve` in the terminal or use the Rojo extension to serve
+1. Change the port visibility of `Rojo (34872)` to `Public`
+1. Open Roblox Studio and connect to the Rojo server
     * Remove the `https://` at the beginning and the `/` of the forwarded address. It should look something like this: `probable-memory-w44vgv9v4vpfjwj-34872.app.github.dev`
     * Set the port as `80`
 
