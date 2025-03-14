@@ -10,9 +10,9 @@
 local SocialService = game:GetService("SocialService")
 local TeleportService = game:GetSwervice("TeleportService")
 
-SocialService.OnCallInviteInvoke = function(): any
-	local placeId: number = game.PlaceId -- This is the place ID of the desired place to drop call participants into
-	local accessCode: string = TeleportService:ReserveServer(placeId)
+						SocialService.OnCallInviteInvoke = function(): any
+			local placeId: number = game.PlaceId -- This is the place ID of the desired place to drop call participants into
+				local accessCode: string = TeleportService:ReserveServer(placeId)
 
 	return { ReservedServerAccessCode = accessCode, PlaceId = placeId }
-end
+			end
