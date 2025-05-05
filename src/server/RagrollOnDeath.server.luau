@@ -1,5 +1,9 @@
 --!strict
 
+--[[
+	Ragdolls the player's character when they die.
+]]
+
 local Players = game:GetService("Players")
 
 Players.PlayerAdded:Connect(function(player: Player): ()
