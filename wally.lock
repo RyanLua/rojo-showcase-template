@@ -3,11 +3,11 @@
 registry = "test"
 
 [[package]]
-name = "legitatx/topbarplus"
-version = "3.0.5"
+name = "1foreverhd/topbarplus"
+version = "3.3.1"
 dependencies = []
 
 [[package]]
 name = "ryanlua/rojo-showcase-template"
 version = "0.1.0"
-dependencies = [["topbarplus", "legitatx/topbarplus@3.0.5"]]
+dependencies = [["topbarplus", "1foreverhd/topbarplus@3.3.1"]]
