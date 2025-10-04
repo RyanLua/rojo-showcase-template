@@ -8,4 +8,4 @@ realm = "shared"
 private = true
 
 [dependencies]
-topbarplus = "1foreverhd/topbarplus@3.3.1"
+topbarplus = "1foreverhd/topbarplus@3.4.0"
