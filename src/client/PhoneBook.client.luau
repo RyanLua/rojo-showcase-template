@@ -34,7 +34,7 @@ local canCall: boolean = canSendCallingInvite(player)
 if canCall then
 	local icon = Icon.new()
 	icon:setImage(iconImage)
-	icon:setCaption(iconCaption, script)
+	icon:setCaption(iconCaption)
 	icon:setImageScale(0.7)
 
 	-- Prompt the phone book when the icon is selected
