@@ -12,6 +12,8 @@ local CollectionService = game:GetService("CollectionService")
 local tag: string = script:GetAttribute("SeatTagName") :: string or "Seat"
 local objectText: string = script:GetAttribute("ObjectText") :: string or "Seat"
 local actionText: string = script:GetAttribute("ActionText") :: string or "Sit"
+local maxActivationDistance: number = script:GetAttribute("MaxActivationDistance") :: number or 5
+local maxIndicatorDistance: number = script:GetAttribute("MaxIndicatorDistance") :: number or 10
 local holdDuration: number = script:GetAttribute("HoldDuration") :: number or 0
 local requiresLineOfSight: boolean = script:GetAttribute("RequiresLineOfSight") :: boolean or false
 local disableSeatTouch: boolean = script:GetAttribute("DisableSeatTouch") :: boolean or true
@@ -30,6 +32,8 @@ local function onInstanceAdded(object: Instance): ()
 		seatPrompt.Name = "SeatProximityPrompt"
 		seatPrompt.ObjectText = objectText
 		seatPrompt.ActionText = actionText
+		seatPrompt.MaxActivationDistance = maxActivationDistance
+		seatPrompt.MaxIndicatorDistance = maxIndicatorDistance
 		seatPrompt.HoldDuration = holdDuration
 		seatPrompt.RequiresLineOfSight = requiresLineOfSight
 		seatPrompt.Parent = object
