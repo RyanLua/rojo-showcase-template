@@ -11,7 +11,6 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local SocialService = game:GetService("SocialService")
 local Players = game:GetService("Players")
 
-local TranslationHelper = require(ReplicatedStorage.TranslationHelper)
 local Icon = require(ReplicatedStorage.Packages.topbarplus)
 local player = Players.LocalPlayer
 
