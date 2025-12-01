@@ -15,7 +15,6 @@ local TranslationHelper = require(ReplicatedStorage.TranslationHelper)
 local Icon = require(ReplicatedStorage.Packages.topbarplus)
 local player = Players.LocalPlayer
 
-local invitePromptMessage: string = script:GetAttribute("InvitePromptMessage") :: string or "Invite friends to join you"
 local iconImage: string = script:GetAttribute("IconImage") :: string
 	or "rbxasset://textures/ui/PlayerList/FriendIcon@3x.png"
 local iconCaption: string = script:GetAttribute("IconCaption") :: string or "Invite Friends"
@@ -32,22 +31,12 @@ end
 local canInvite: boolean = canSendGameInvite(player)
 if canInvite then
 	local inviteOptions: ExperienceInviteOptions = Instance.new("ExperienceInviteOptions")
-	inviteOptions.PromptMessage = TranslationHelper.translate(invitePromptMessage, script)
 
 	-- Create the topbar icon
 	local icon = Icon.new()
 	icon:setImage(iconImage)
 	icon:setCaption(iconCaption)
 	icon:setImageScale(0.7)
-
-	-- Handle locale changes
-	local onLocaleIdChangedSignal: RBXScriptSignal | false = TranslationHelper.onLocaleIdChanged()
-
-	if onLocaleIdChangedSignal ~= false then
-		onLocaleIdChangedSignal:Connect(function(): ()
-			inviteOptions.PromptMessage = TranslationHelper.translate(invitePromptMessage, script)
-		end)
-	end
 
 	-- Prompt the game invite when the icon is selected
 	icon.selected:Connect(function(): ()
