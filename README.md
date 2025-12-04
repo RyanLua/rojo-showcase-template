@@ -1,6 +1,6 @@
 # Roblox Showcase Rojo Template
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/RyanLua/rojo-showcase-template?quickstart=1)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/ryanlua/rojo-showcase-template?quickstart=1)
 
 </div>
 
